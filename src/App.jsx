@@ -4,7 +4,9 @@ import { useState } from 'react';
 function App() {
 	let [displayOne, setDisplayOne] = useState(0);
 	const [displayTwo, setDisplayTwo] = useState(0);
-	const [operand, setOperand] = useState('+');
+	const [operator, setOperator] = useState('+');
+
+	let result = 0;
 
 	const clickHandlerLeftPanel = (num) => {
 		if (displayOne === 0) {
@@ -18,9 +20,25 @@ function App() {
 		} else setDisplayTwo(displayTwo + num.target.innerText);
 	};
 
-	const clickHandlerOperand = (operand) => {
-		setOperand(operand.target.innerText);
+	const clickHandlerOperator = (operator) => {
+		setOperator(operator.target.innerText);
 	};
+
+	if (operator === '+') {
+		result = Number(displayOne) + Number(displayTwo);
+	}
+
+	if (operator === '-') {
+		result = Number(displayOne) - Number(displayTwo);
+	}
+
+	if (operator === '*') {
+		result = Number(displayOne) * Number(displayTwo);
+	}
+
+	if (operator === '÷') {
+		result = Number(displayOne) / Number(displayTwo);
+	}
 
 	const clearLeft = () => {
 		setDisplayOne(0);
@@ -51,12 +69,12 @@ function App() {
 			</div>
 
 			<div className="panel">
-				<p>{operand}</p>
+				<p>{operator}</p>
 				<div className="numbers">
-					<button onClick={clickHandlerOperand}>+</button>
-					<button onClick={clickHandlerOperand}>-</button>
-					<button onClick={clickHandlerOperand}>*</button>
-					<button onClick={clickHandlerOperand}>÷</button>
+					<button onClick={clickHandlerOperator}>+</button>
+					<button onClick={clickHandlerOperator}>-</button>
+					<button onClick={clickHandlerOperator}>*</button>
+					<button onClick={clickHandlerOperator}>÷</button>
 				</div>
 			</div>
 
@@ -78,7 +96,7 @@ function App() {
 				</div>
 			</div>
 			<div className="panel answer">
-				<p>0</p>
+				<p>{result}</p>
 			</div>
 		</div>
 	);
