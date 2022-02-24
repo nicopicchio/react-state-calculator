@@ -16,7 +16,7 @@ function App() {
 		if (displayTwo === 0) {
 			setDisplayTwo(num.target.innerText);
 		} else setDisplayTwo(displayTwo + num.target.innerText);
-	};a
+	};
 
 	const clickHandlerOperand = (operand) => {
 		setOperand(operand.target.innerText);
