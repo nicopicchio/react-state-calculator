@@ -2,20 +2,20 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-	let [displayOne, setDisplayOne] = useState(0);
+	const [displayOne, setDisplayOne] = useState(0);
 	const [displayTwo, setDisplayTwo] = useState(0);
 	const [operator, setOperator] = useState('+');
 
 	let result = 0;
 
 	const clickHandlerLeftPanel = (num) => {
-		if (displayOne === 0) {
+		if (displayOne == 0) {
 			setDisplayOne(num.target.innerText);
 		} else setDisplayOne(displayOne + num.target.innerText);
 	};
 
 	const clickHandlerRightPanel = (num) => {
-		if (displayTwo === 0) {
+		if (displayTwo == 0) {
 			setDisplayTwo(num.target.innerText);
 		} else setDisplayTwo(displayTwo + num.target.innerText);
 	};
